@@ -41,26 +41,3 @@ const Duration = (props) => (
 );
 
 export default Duration;
-
-// // can be stateless functional component?  Class version follows ...
-
-// export default class Duration extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <label id={this.props.labelId}>{this.props.typeLabel}</label>
-//         <button type="button" name="button" id={this.props.downArrowId}
-//             value="-" onClick={this.props.onChangeDuration} >
-//             {/* <i className="fi-arrow-down"></i> */}
-//             <p>Down arrow</p>
-//         </button>
-//         <span id={this.props.durationId}>{this.props.currentDuration}</span>
-//         <button type="button" name="button" id={this.props.upArrowId}
-//             value="+" onClick={this.props.onChangeDuration} >
-//             {/* <i className="fi-arrow-up"></i> */}
-//             <p>Up arrow</p>
-//         </button>
-//       </div>
-//     );
-//   }
-// }

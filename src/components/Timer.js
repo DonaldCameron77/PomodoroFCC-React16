@@ -37,17 +37,22 @@ export default class Timer extends React.Component {
     // have to resort to this to make totalSeconds computable in JS,
     // and can't do computation in an object literal
     stateTmp.totalSeconds = stateTmp.sessionLength * 60;
-    console.log("get reset values", stateTmp);
     return stateTmp;
   }
 
   // Hopefully this is how one sets initial state
   state = this.getResetValues(); // initial state
 
+  handleReset = () => {
+    clearInterval(this.timer);
+    this.timer = undefined; // would null be preferred?
+    this.setState(this.getResetValues());
+  }
+
   // internal method
   adjustTimerLength = (modeToAdjust, direction) => {
-    console.log("modeToAdjust =", modeToAdjust + ',', "direction is", direction);
-    console.log('Timer.adjustTimerLength(): this.state = ', this.state);
+    // console.log("modeToAdjust =", modeToAdjust + ',', "direction is", direction);
+    // console.log('Timer.adjustTimerLength(): this.state = ', this.state);
 
     if (this.state.countdownStatus === 'running') {
       return;
@@ -85,9 +90,10 @@ export default class Timer extends React.Component {
     this.adjustTimerLength('Session', e.currentTarget.value);
   };
 
-  doClockTick () {
+  doClockTick = () => {
     // console.log(this);
     //  this.setState({totalSeconds: this.state.totalSeconds - 1});
+    // console.log("doClockTick - 'this.state' is", this.state);
     var newCount = this.state.totalSeconds - 1;
     if (newCount > 0) {
       this.setState({totalSeconds: newCount});
@@ -95,7 +101,7 @@ export default class Timer extends React.Component {
     else {
       // timer has run out - switch timer modes and restart
       clearInterval(this.timer);
-      document.getElementById('beep').play();
+      // document.getElementById('beep').play(); // sound unimplemented
       if (this.state.timerLabel === 'Session') {
         this.setState({
           timerLabel: 'Break',
@@ -113,7 +119,39 @@ export default class Timer extends React.Component {
     }
   };
 
+  handleStatusChange = () => {
+    // the play/pause button was clicked
+    // console.log("handleStatusChange - 'this.state' is", this.state);
+    switch (this.state.countdownStatus) {
+      case 'stopped':
+        this.setState( {countdownStatus: 'running'} );
+        this.timer = setInterval(this.doClockTick, 1000);
+        break;
+      case 'running':
+        clearInterval(this.timer);
+        this.setState( {countdownStatus: 'stopped'} );
+        break;
+      // blargh blargh blargh
+      //   this.timer.clearInterval();
+      //   if (this.state.totalSeconds === 0)
+      // blargh blargh blargh
+      //   the various cases -
+      //   -- catch when timer goes to zero while counting (no click involved) but
+      //      this is the only(?) place you switch between timer and break
+      //   -- click - state is running and timer not zero - becomes pause
+      //   -- click - state is running and timer is zero - corner case of
+      //        clicking just as timer went to zero.  Switch session <-> break but dont start
+      //   -- click - state is stopped
+      //   -- click - state is paused - restart timer at current totalSec (what about if its zero?)
+      // blargh blargh blargh
+      //   break;
+      // case 'paused':
+      //   alert('timer::handleStatusChange() unexpected countdownStatus: paused');
+    }
+  };
+
   render() {
+    // console.log("Timer.render() - 'this.state' is", this.state);
     return (
       <div>
         <p>"  Hi! Timer is here"</p>
@@ -143,7 +181,11 @@ export default class Timer extends React.Component {
           timerLabel={this.state.timerLabel}
         />
         
-        <Controls />
+        <Controls
+          countdownStatus={this.state.countdownStatus}
+          onStatusChange={this.handleStatusChange}
+          onReset={this.handleReset}
+        />
       </div>
     );
   }
