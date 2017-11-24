@@ -101,7 +101,7 @@ export default class Timer extends React.Component {
     else {
       // timer has run out - switch timer modes and restart
       clearInterval(this.timer);
-      // document.getElementById('beep').play(); // sound unimplemented
+      // document.getElementById('beep').play();
       if (this.state.timerLabel === 'Session') {
         this.setState({
           timerLabel: 'Break',
@@ -186,6 +186,11 @@ export default class Timer extends React.Component {
           onStatusChange={this.handleStatusChange}
           onReset={this.handleReset}
         />
+
+        <section>
+          {/* <audio id="beep" preload="auto" src="/audio/gong.wav" /> */}
+        </section>
+
       </div>
     );
   }

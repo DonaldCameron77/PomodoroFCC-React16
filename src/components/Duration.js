@@ -1,5 +1,9 @@
 import React from 'react';
 
+// react-icon components, in lieu of icon fonts
+import FaArrowDown from 'react-icons/fa/arrow-down';
+import FaArrowUp from 'react-icons/fa/arrow-up';
+
 /*  This is a duration decrement/increment block consisting of label
     (either 'Break Length' or 'Session Length') on one line, while on
     the next line we have down arrow (decrement), amount (in whole minutes),
@@ -19,8 +23,8 @@ import React from 'react';
 
     There is also the question of how this component "knows" that when an arrow is
     clicked, it is affecting break length vs. session length.  Answer: It doesn't
-    have to.  The prop passed in to call on click is the correct function (or
-    correctly parameterized function).
+    have to.  The prop passed in for onClick is the correct function.  And 'value'
+    indicates whether it's an increment or decrement.
 */
 
 const Duration = (props) => (
@@ -29,13 +33,15 @@ const Duration = (props) => (
     <button type="button" name="button" id={props.downArrowId}
         value="-" onClick={props.onChangeDuration} >
         {/* <i className="fi-arrow-down"></i> */}
-        <p>Down arrow</p>
+        {/*  <p>Down arrow</p> */}
+        <FaArrowDown />
     </button>
     <span id={props.durationId}>{props.currentDuration}</span>
     <button type="button" name="button" id={props.upArrowId}
         value="+" onClick={props.onChangeDuration} >
         {/* <i className="fi-arrow-up"></i> */}
-        <p>Up arrow</p>
+        {/*  <p>Up arrow</p> */}
+        <FaArrowUp />
     </button>
   </div>
 );
