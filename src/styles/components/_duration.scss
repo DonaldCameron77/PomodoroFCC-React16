@@ -1,0 +1,21 @@
+
+// Controls for break and session length
+
+// The overall section with two side-by-side control blocks
+#duration-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+// A single length control block (break or session)
+.duration-control-group {
+  display: flex;
+  flex-direction: column;
+}
+
+// The second "row" of a single control block, containing down arrow / current value / up arrow
+.duration-control {
+  display: flex;
+  flex-direction: row;
+}

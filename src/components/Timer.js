@@ -153,9 +153,8 @@ export default class Timer extends React.Component {
   render() {
     // console.log("Timer.render() - 'this.state' is", this.state);
     return (
-      <div>
-        <p>"  Hi! Timer is here"</p>
-
+      <div className="container">
+      <div id="duration-section">
         <Duration
           typeLabel="Break Length"
           labelId="break-label"
@@ -175,6 +174,8 @@ export default class Timer extends React.Component {
           currentDuration={this.state.sessionLength}
           onChangeDuration={this.handleSessionLengthChange}
         />
+      </div>
+        
 
         <Clock
           totalSeconds={this.state.totalSeconds}
@@ -190,7 +191,6 @@ export default class Timer extends React.Component {
         <section>
           {/* <audio id="beep" preload="auto" src="/audio/gong.wav" /> */}
         </section>
-
       </div>
     );
   }

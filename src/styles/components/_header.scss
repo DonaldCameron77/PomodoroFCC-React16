@@ -1,0 +1,17 @@
+.header {
+  margin-bottom: 4.8rem; // will need to tweak!
+  padding: 1.6rem 0;
+  text-align: center;
+}
+
+.header__title {
+  font-size: $xxl-size;
+  font-weight: 500;
+  margin: $l-size 0 $m-size;
+}
+
+.header__subtitle {
+  font-size: $l-size;
+  font-weight: 300;
+  margin: 0;
+}

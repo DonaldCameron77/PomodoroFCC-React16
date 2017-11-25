@@ -14,20 +14,16 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /react-icons\/(.)*(.js)$/,
-        loader: 'babel-loader'
-        // ,
-        // query: {
-        //   presets: ['es2015', 'react']
-        // }
-      },
-      {
         test: /\.s?css$/,
         use: [
           'style-loader',
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /react-icons\/(.)*(.js)$/,
+        loader: 'babel-loader'
       }
     ]
   },

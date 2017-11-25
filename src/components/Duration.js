@@ -28,21 +28,23 @@ import FaArrowUp from 'react-icons/fa/arrow-up';
 */
 
 const Duration = (props) => (
-  <div>
+  <div className="duration-control-group">
     <label id={props.labelId}>{props.typeLabel}</label>
-    <button type="button" name="button" id={props.downArrowId}
+    <div className="duration-control">
+      <button type="button" name="button" id={props.downArrowId}
         value="-" onClick={props.onChangeDuration} >
         {/* <i className="fi-arrow-down"></i> */}
         {/*  <p>Down arrow</p> */}
         <FaArrowDown />
-    </button>
+      </button>
     <span id={props.durationId}>{props.currentDuration}</span>
-    <button type="button" name="button" id={props.upArrowId}
+      <button type="button" name="button" id={props.upArrowId}
         value="+" onClick={props.onChangeDuration} >
         {/* <i className="fi-arrow-up"></i> */}
         {/*  <p>Up arrow</p> */}
         <FaArrowUp />
-    </button>
+      </button>
+    </div>
   </div>
 );
 
