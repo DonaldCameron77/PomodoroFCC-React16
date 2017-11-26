@@ -1,19 +1,31 @@
-html {
-  font-size: 62.5%; // force 1rem to be 10px
-}
+/* General dcc boilerplate */
+
+/*-----Prevents iPhone from resizing in landscape mode -----*/
+html {-webkit-text-size-adjust: 100%; } /* see J.Seric foundation article on why 100% rather than 'none' */
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/*--------- stop Chrome from putting blue outline around selected clicked items --------*/
+:focus { outline: 0; }
+
+/* End general dcc boilerplate */
+
+// html {
+//   // Per Andrew Mead. Generally good(?) but not here ...
+//   // font-size: 62.5%; // force 1rem to be 10px
+//   // Doesn't work with this project where we're trying to match an
+//   // earlier version's styles which used the conventional 16px = 1rem
+// }
 
 body {
   background: $rust;
   color: white;
-  font-family: Helvetica, Arial, sans-serif;
-  // font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; // from Foundation-sites
+  // font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: $m-size;
+  font-weight: 200; // can't be too rich or too thin
 }
-
-/* h1, h2, h3, h4, h5, h6 {
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-  font-weight: 500;
-} */
 
 button {
   cursor: pointer;

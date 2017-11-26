@@ -8,14 +8,33 @@
   justify-content: space-around;
 }
 
-// A single length control block (break or session)
+// A individual length control block (break or session)
 .duration-control-group {
   display: flex;
   flex-direction: column;
+  font-size: $ml-size;  // for label text and current value
+}
+
+.duration-control-group label {
+  // 1st row, basically, of duration-control-group
+  margin-bottom: $m-size;
 }
 
 // The second "row" of a single control block, containing down arrow / current value / up arrow
 .duration-control {
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
+}
+
+#break-length, #session-length {
+  margin-left: $s-size;
+  margin-right: $s-size;
+}
+
+.duration-control button {
+  // these buttons have ids, but selectimg them this way is more flexible 
+  background-color: $rust;   // button body invisible, but keep a border
+  border: 1px solid white; // during development so we can see the button outline
+  color: white;
 }

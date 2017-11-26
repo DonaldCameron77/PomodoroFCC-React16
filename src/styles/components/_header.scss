@@ -6,12 +6,12 @@
 
 .header__title {
   font-size: $xxl-size;
-  font-weight: 500;
+  font-weight: 400;
   margin: $l-size 0 $m-size;
 }
 
 .header__subtitle {
   font-size: $l-size;
-  font-weight: 300;
+  font-weight: 200; // override user agent stylesheet. 
   margin: 0;
 }
