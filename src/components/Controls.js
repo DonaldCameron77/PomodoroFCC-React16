@@ -19,22 +19,22 @@ class Controls extends React.Component {
   render () {
     let {countdownStatus} = this.props;
     return (
-      <div id="controls-container">
-        <div className="controls">
+      <div id="controls-section">
+        <div className="control">
           <button type="button" name="button" id="start_stop" onClick={this.onStatusChange()}>
             {/* <i className={countdownStatus === 'running' ? 'fi-pause' : 'fi-play'}></i> */}
             {/*<p>{countdownStatus === 'running' ? 'Pause' : 'Play'}</p>*/}
             { countdownStatus === 'running'
-              ? <FaPause />
-              : <FaPlay />
+              ? <FaPause classname="control-icon"/>
+              : <FaPlay classname="control-icon"/>
             }
           </button>
         </div>
-        <div className="controls">
+        <div className="control">
           <button type="button" name="button" id="reset" onClick={this.onReset()}>
             {/* <i className="fi-loop"></i> */}
             {/* <p>Reset</p> */}
-            <FaRefresh />
+            <FaRefresh classname="control-icon"/>
           </button>
         </div>
       </div>

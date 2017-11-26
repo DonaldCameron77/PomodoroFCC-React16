@@ -6,7 +6,6 @@
   border-radius: 50%;
   margin: 2rem auto;
   padding: 2rem;
-
   display: flex;
   flex-direction: column;
   // justify-content: center;
@@ -14,10 +13,8 @@
 }
 
 #timer-label {
-  // color: $clock-text-color;
   font-size: 2rem;
   font-weight: normal;
-  // margin-top: 20%;
 }
 
 #time-left {

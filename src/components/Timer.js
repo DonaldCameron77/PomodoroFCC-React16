@@ -154,27 +154,27 @@ export default class Timer extends React.Component {
     // console.log("Timer.render() - 'this.state' is", this.state);
     return (
       <div className="container">
-      <div id="duration-section">
-        <Duration
-          typeLabel="Break Length"
-          labelId="break-label"
-          downArrowId="break-decrement"
-          upArrowId="break-increment"
-          durationId="break-length"
-          currentDuration={this.state.breakLength}
-          onChangeDuration={this.handleBreakLengthChange}
-        />
+        <div id="duration-section">
+          <Duration
+            typeLabel="Break Length"
+            labelId="break-label"
+            downArrowId="break-decrement"
+            upArrowId="break-increment"
+            durationId="break-length"
+            currentDuration={this.state.breakLength}
+            onChangeDuration={this.handleBreakLengthChange}
+          />
 
-        <Duration
-          typeLabel="Session Length"
-          labelId="session-label"
-          downArrowId="session-decrement"
-          upArrowId="session-increment"
-          durationId="session-length"
-          currentDuration={this.state.sessionLength}
-          onChangeDuration={this.handleSessionLengthChange}
-        />
-      </div>
+          <Duration
+            typeLabel="Session Length"
+            labelId="session-label"
+            downArrowId="session-decrement"
+            upArrowId="session-increment"
+            durationId="session-length"
+            currentDuration={this.state.sessionLength}
+            onChangeDuration={this.handleSessionLengthChange}
+          />
+        </div>
         
 
         <Clock
