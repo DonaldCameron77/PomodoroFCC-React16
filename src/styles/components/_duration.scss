@@ -42,3 +42,17 @@
   border: 1px solid white; // during development so we can see the button outline
   color: white;
 }
+
+@media (max-width: $desktop-breakpoint) {
+  #duration-section {
+    flex-direction: column;
+    padding: 0;
+    text-align: center;
+  }
+  .duration-control-group {
+    margin-bottom: $m-size;
+  }
+  .duration-control-group label {
+    margin: 0;
+  }
+}
